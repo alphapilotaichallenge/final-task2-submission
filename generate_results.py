@@ -5,7 +5,7 @@ import json
 import cv2
 import numpy as np
 import model_output_correction
-from model.yolo_model import YOLO
+from yolo_model import YOLO
 
 # Implement a function that takes an image as an input, performs any preprocessing steps and outputs a list of bounding box detections and assosciated confidence score. 
 

@@ -1,4 +1,0 @@
-UL
-UR
-LR
-LL
