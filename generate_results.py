@@ -60,4 +60,4 @@ class GenerateFinalDetections():
             
             return [[int(v) for v in model_output_correction.bad_xy_to_good_xy(corners_filled_ordered)] + [int(100.*(sum(scores_filled_ordered)/4.))/100.]]
     
-        return []
+        return [[]]
