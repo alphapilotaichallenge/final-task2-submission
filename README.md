@@ -1,9 +1,9 @@
-## Running
+## Running Team Titans Submission
 
-To use the model to infer, call `python demo.py`.
+pip3 install -r requirements.txt
 
-This will use `missing_corners.calculate_missing_corners` for any missing corners and generate predictions in `images/res`.
+To generate prediction labels for validation run below command and keep the test data in `testing/images`.
 
-`IMG_0005.JPG` added for example.
+python3 generate_submission.py 
 
 Conversion and YOLO predictor license in LICENSE: https://github.com/xiaochus/YOLOv3
