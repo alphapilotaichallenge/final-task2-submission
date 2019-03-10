@@ -1,3 +1,10 @@
+# Post processing algorithm
+#
+# This program proprietary to Team Titans of AlphaPilot Challenge
+# Authors: Carson Wilber
+# Team Captain: Ashok Yannam
+#---------------------------------------------------#
+
 ordered_corner_keys = ["UL", "UR", "LR", "LL"]
 
 def ordered_xy_predictions_to_dict(ordered_xy_predictions):
