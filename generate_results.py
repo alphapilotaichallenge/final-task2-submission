@@ -1,6 +1,12 @@
 # This script is to be filled by the team members. 
 # Import necessary libraries
 # Load libraries
+#
+# This program proprietary to Team Titans of AlphaPilot Challenge
+# Authors: Carson Wilber
+# Team Captain: Ashok Yannam
+#---------------------------------------------------#
+
 import json
 import cv2
 import numpy as np
