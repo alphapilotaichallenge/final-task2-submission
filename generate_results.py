@@ -24,7 +24,7 @@ def process_image(img):
     # Returns
         image: ndarray(64, 64, 3), processed image.
     """
-    image = cv2.resize(img, (800, 800),
+    image = cv2.resize(img, (608, 608),
                        interpolation=cv2.INTER_LINEAR)
     image = np.array(image, dtype='float32')
     image /= 255.
@@ -71,7 +71,4 @@ class GenerateFinalDetections():
             if len(ret[0]) == 9:
                 return ret
             
-            ret = [[int(original_width * 0.33), int(original_height * 0.33), int(original_width * 0.66), int(original_height * 0.33), int(original_width * 0.66), int(original_height * 0.66), int(original_width * 0.33), int(original_height * 0.66), 0.5]]
-            return ret
-    
-        return [[]]
+        return [[int(original_width * 0.33), int(original_height * 0.33), int(original_width * 0.66), int(original_height * 0.33), int(original_width * 0.66), int(original_height * 0.66), int(original_width * 0.33), int(original_height * 0.66), 0.5]]
