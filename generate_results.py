@@ -24,7 +24,7 @@ def process_image(img):
     # Returns
         image: ndarray(64, 64, 3), processed image.
     """
-    image = cv2.resize(img, (608, 608),
+    image = cv2.resize(img, (800, 800),
                        interpolation=cv2.INTER_LINEAR)
     image = np.array(image, dtype='float32')
     image /= 255.
@@ -46,6 +46,8 @@ class GenerateFinalDetections():
             box: predicted gate.
 
         """
+        original_width, original_height, _ = image.shape
+        
         pimage = process_image(image)
         
         boxes, classes, scores = self.yolo.predict(pimage, image.shape)
@@ -64,6 +66,12 @@ class GenerateFinalDetections():
                     corners_filled_ordered.extend(midpoint_box)
                     scores_filled_ordered.extend([list(scores)[list(classes).index(class_expected)]])
             
-            return [[int(v) for v in model_output_correction.bad_xy_to_good_xy(corners_filled_ordered)] + [int(100.*(sum(scores_filled_ordered)/4.))/100.]]
+            ret = [[int(v) for v in model_output_correction.bad_xy_to_good_xy(corners_filled_ordered)] + [int(100.*(sum(scores_filled_ordered)/4.))/100.]]
+            
+            if len(ret[0]) == 9:
+                return ret
+            
+            ret = [[int(original_width * 0.33), int(original_height * 0.33), int(original_width * 0.66), int(original_height * 0.33), int(original_width * 0.66), int(original_height * 0.66), int(original_width * 0.33), int(original_height * 0.66), 0.5]]
+            return ret
     
         return [[]]
